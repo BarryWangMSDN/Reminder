@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskReminder
 {
-    class WorkItemBasicModel
+    public class WorkItemBasicModel
     {
         private DateTime starttime;
 
@@ -32,15 +32,22 @@ namespace TaskReminder
             set { itemurl = value; }
         }
    
-        private List<string> workitempriority;
+        private string workitempriority;
 
-        public List<string> WorkItemPriority
+        public string WorkItemPriority
         {
             get { return workitempriority; }
             set { workitempriority = value; }
         }
 
-        
+
+        private string itemdescription;
+
+        public string ItemDescription
+        {
+            get { return itemdescription; }
+            set { itemdescription = value; }
+        }
 
 
     }
