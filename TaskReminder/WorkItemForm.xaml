@@ -28,5 +28,7 @@
         <TextBox Width="250" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         <TextBlock Grid.Row="3" Text="Priority:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="4" Text="Description:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Width="400" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

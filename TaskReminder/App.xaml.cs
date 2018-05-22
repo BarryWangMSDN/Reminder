@@ -22,14 +22,22 @@ namespace TaskReminder
     /// </summary>
     sealed partial class App : Application
     {
+        private string connectionString = @"Data Source=DESKTOP-5MT81K5\SQLEXPRESS;User Id=barryw;Password=qweasd;Initial Catalog=TaskReminderUWAS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        public string ConnectionString
+        {
+            get => connectionString; set => connectionString = value;
+        }
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         public App()
         {
+            
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
         }
 
         /// <summary>

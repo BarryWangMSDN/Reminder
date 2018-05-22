@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TaskReminder
 {
-    public class WorkItemBasicModel
+    public class WorkItemBasicModel: INotifyPropertyChanged
     {
         private DateTime starttime;
 
@@ -43,10 +44,21 @@ namespace TaskReminder
 
         private string itemdescription;
 
+       
+
         public string ItemDescription
         {
             get { return itemdescription; }
             set { itemdescription = value; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
 

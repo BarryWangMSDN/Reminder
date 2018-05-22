@@ -25,6 +25,8 @@ namespace TaskReminder
         public WorkItemForm()
         {
             this.InitializeComponent();
+            WorkItemVM test1 = new WorkItemVM();
+            
         }
     }
 }
