@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +15,17 @@ namespace TaskReminder
         public WorkItemVM()
         {
             ObservableCollection<WorkItemBasicModel> workitems = new ObservableCollection<WorkItemBasicModel>();
-            workitems.Add(new WorkItemBasicModel {StartTime=DateTime.Parse("2017-01-02 11:01:00"),DueTime= DateTime.Parse("2017-01-03 11:01:00"),ItemUrl="http://www.sina.com",ItemDescription="test1",WorkItemPriority="Low" });
+            workitems.Add(new WorkItemBasicModel {StartTime=DateTime.Parse("26/10/2009 8:47:39 AM", CultureInfo.CreateSpecificCulture("en-US")),DueTime= DateTime.Now,ItemUrl="http://www.sina.com",ItemDescription="test1",WorkItemPriority="Low" });
             InsertWorkItemTest((App.Current as App).ConnectionString,workitems[0]);
         }
 
         public void InsertWorkItemTest(string connectingString, WorkItemBasicModel singleitem)
         {
             string InsertWorkitemQuery = "insert into" + "WorkItemTable" + "(StartDate,DueDate,URL,Description,Priority) Values("
-               + singleitem.StartTime.ToLongTimeString()
-               + singleitem.DueTime.ToLongTimeString()
-               + singleitem.ItemUrl
-               + singleitem.ItemDescription
+               + singleitem.StartTime.ToString()+","
+               + singleitem.DueTime.ToShortDateString() + ","
+               + singleitem.ItemUrl + ","
+               + singleitem.ItemDescription + ","
                + singleitem.WorkItemPriority
                +")";
             try

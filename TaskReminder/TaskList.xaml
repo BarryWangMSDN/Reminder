@@ -13,7 +13,7 @@
            OpenPaneLength="296">
             <SplitView.Pane>
                 <ListView>
-                    <x:String>123</x:String>
+                    <Rectangle Width="280" Height="200" Fill="Pink" ></Rectangle>
                     <x:String>45</x:String>
                     <x:String>678</x:String>
                     <x:String>91</x:String>

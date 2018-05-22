@@ -22,7 +22,7 @@ namespace TaskReminder
     /// </summary>
     sealed partial class App : Application
     {
-        private string connectionString = @"Data Source=DESKTOP-5MT81K5\SQLEXPRESS;User Id=barryw;Password=qweasd;Initial Catalog=TaskReminderUWAS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string connectionString = @"Data Source=DESKTOP-5MT81K5\SQLEXPRESS;Initial Catalog=TaskReminderUWAS;Integrated Security=SSPI;User Id=barryw;Password=qweasd;";
 
         public string ConnectionString
         {
