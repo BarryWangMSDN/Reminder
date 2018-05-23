@@ -12,22 +12,26 @@ namespace TaskReminder
 {
     public class WorkItemVM
     {
+
         public WorkItemVM()
         {
             ObservableCollection<WorkItemBasicModel> workitems = new ObservableCollection<WorkItemBasicModel>();
-            workitems.Add(new WorkItemBasicModel {StartTime=DateTime.Parse("26/10/2009 8:47:39 AM", CultureInfo.CreateSpecificCulture("en-US")),DueTime= DateTime.Now,ItemUrl="http://www.sina.com",ItemDescription="test1",WorkItemPriority="Low" });
-            InsertWorkItemTest((App.Current as App).ConnectionString,workitems[0]);
+           //var testtime=DateTime.ParseExact(DateTime.Now.ToString(), "yyyy-mm-dd hh:mm:ss",CultureInfo.InvariantCulture);
+            workitems.Add(new WorkItemBasicModel {StartTime=DateTime.Now, DueTime= DateTime.Now,ItemUrl="test",ItemDescription="test1",WorkItemPriority="Low" });
+            InsertWorkItem(((App.Current as App).ConnectionString), workitems[0]);
+
+
         }
 
-        public void InsertWorkItemTest(string connectingString, WorkItemBasicModel singleitem)
+        public void InsertWorkItem(string connectingString, WorkItemBasicModel singleitem)
         {
-            string InsertWorkitemQuery = "insert into" + "WorkItemTable" + "(StartDate,DueDate,URL,Description,Priority) Values("
-               + singleitem.StartTime.ToString()+","
-               + singleitem.DueTime.ToShortDateString() + ","
-               + singleitem.ItemUrl + ","
-               + singleitem.ItemDescription + ","
-               + singleitem.WorkItemPriority
-               +")";
+            string InsertWorkitemQuery = "insert into" + " WorkItemTable" + "(StartDate,DueDate,URL,Description,Priority) Values("
+               + "'" + singleitem.StartTime.ToShortDateString()+" " + singleitem.StartTime.ToShortTimeString()+"',"
+               + "'" + singleitem.DueTime.ToShortDateString() + " " + singleitem.DueTime.ToShortTimeString() + "',"
+               + "'" + singleitem.ItemUrl + "',"
+               + "'" + singleitem.ItemDescription + "',"
+               + "'" + singleitem.WorkItemPriority
+               + "')";
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectingString))

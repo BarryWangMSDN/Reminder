@@ -9,14 +9,7 @@ namespace TaskReminder
 {
     public class WorkItemBasicModel: INotifyPropertyChanged
     {
-        private DateTime startdate;
-
-        public DateTime StartDate
-        {
-            get { return startdate; }
-            set { startdate = value; }
-        }
-
+        
 
         private DateTime starttime;
 
